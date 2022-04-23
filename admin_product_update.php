@@ -31,17 +31,17 @@ if(isset($_POST['update_product'])){
    $update_product = $conn->prepare("UPDATE `products` SET name = ?, price = ? WHERE id = ?");
    $update_product->execute([$name, $price, $pid]);
 
-   $message[] = 'product updated successfully!';
+   $message[] = 'produto atualizado com sucesso!';
 
    if(!empty($image)){
       if($image_size > 2000000){
-         $message[] = 'image size is too large!';
+         $message[] = 'a imagem selecionada e muito grande!';
       }else{
          $update_image = $conn->prepare("UPDATE `products` SET image = ? WHERE id = ?");
          $update_image->execute([$image, $pid]);
          move_uploaded_file($image_tmp_name, $image_folder);
          unlink('uploaded_img/'.$old_image);
-         $message[] = 'image updated successfully!';
+         $message[] = 'image atualizada com sucesso!';
       }
    }
 
@@ -50,12 +50,12 @@ if(isset($_POST['update_product'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update product</title>
+   <title>Atualização de produtos</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -70,7 +70,7 @@ if(isset($_POST['update_product'])){
 
 <section class="update-product">
 
-   <h1 class="heading">update product</h1>
+   <h1 class="heading">atualizar produtos</h1>
 
    <?php
       $update_id = $_GET['update'];
@@ -83,19 +83,19 @@ if(isset($_POST['update_product'])){
       <input type="hidden" name="pid" value="<?= $fetch_products['id']; ?>">
       <input type="hidden" name="old_image" value="<?= $fetch_products['image']; ?>">
       <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
-      <input type="text" class="box" required maxlength="100" placeholder="enter product name" name="name" value="<?= $fetch_products['name']; ?>">
-      <input type="number" min="0" class="box" required max="9999999999" placeholder="enter product price" onkeypress="if(this.value.length == 10) return false;" name="price" value="<?= $fetch_products['price']; ?>">
+      <input type="text" class="box" required maxlength="100" placeholder="digitr o nome do produto" name="name" value="<?= $fetch_products['name']; ?>">
+      <input type="number" min="0" class="box" required max="9999999999" placeholder="digite o preço do produto" onkeypress="if(this.value.length == 10) return false;" name="price" value="<?= $fetch_products['price']; ?>">
       <input type="file" name="image" accept="image/jpg, image/jpeg, image/png" class="box">
       <div class="flex-btn">
-         <input type="submit" value="update product" class="btn" name="update_product">
-         <a href="admin_products.php" class="option-btn">go back</a>
+         <input type="submit" value="atualizar produto" class="btn" name="update_product">
+         <a href="admin_products.php" class="option-btn">voltar</a>
       </div>
    </form>
 
    <?php
          }
       }else{
-         echo '<p class="empty">no product found!</p>';
+         echo '<p class="empty">nenhum produto adicionado ao cardápio!</p>';
       }
    ?>
 

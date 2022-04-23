@@ -1,7 +1,7 @@
 <?php
 
 ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+   error_reporting(E_ALL);
 include 'databaseconnect.php';
 
 session_start();
@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,11 +63,11 @@ if(isset($_POST['login'])){
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>login now</h3>
-      <p>default username = <span>admin</span> & password = <span>111</span></p>
-      <input type="text" name="name" required placeholder="enter your username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" name="pass" required placeholder="enter your password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="login now" class="btn" name="login">
+      <h3>login</h3>
+      <p>usuário padrão = <span>admin</span> & password = <span>111</span></p>
+      <input type="text" name="name" required placeholder="digite seu nome de usuário" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="password" name="pass" required placeholder="digite sua senha" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="submit" value="login" class="btn" name="login">
    </form>
 
 </section>

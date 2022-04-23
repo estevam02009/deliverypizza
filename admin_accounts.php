@@ -23,12 +23,12 @@ if(isset($_GET['delete'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>admin accounts</title>
+   <title>contas de administrador</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -43,13 +43,13 @@ if(isset($_GET['delete'])){
 
 <section class="accounts">
 
-   <h1 class="heading">admin accounts</h1>
+   <h1 class="heading">contas de administrador</h1>
 
    <div class="box-container">
 
    <div class="box">
-      <p>add new admin</p>
-      <a href="admin_register.php" class="option-btn">register admin</a>
+      <p>adicionar novo administrador</p>
+      <a href="admin_register.php" class="option-btn">registrar administardor</a>
    </div>
 
    <?php
@@ -62,10 +62,10 @@ if(isset($_GET['delete'])){
       <p> user id : <span><?= $fetch_accounts['id']; ?></span> </p>
       <p> username : <span><?= $fetch_accounts['name']; ?></span> </p>
       <div class="flex-btn">
-         <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('delete this account?')" class="delete-btn">delete</a>
+         <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('deletar está conta?')" class="delete-btn">delete</a>
          <?php
             if($fetch_accounts['id'] == $admin_id){
-               echo '<a href="admin_profile_update.php" class="option-btn">update</a>';
+               echo '<a href="admin_profile_update.php" class="option-btn">atualizar</a>';
             }
          ?>
       </div>
@@ -73,7 +73,7 @@ if(isset($_GET['delete'])){
    <?php
          }
       }else{
-         echo '<p class="empty">no accounts available!</p>';
+         echo '<p class="empty">nenhuma conta disponível!</p>';
       }
    ?>
 

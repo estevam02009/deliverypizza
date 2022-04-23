@@ -84,7 +84,7 @@ if(isset($_POST['add_to_cart'])){
       }else{
          $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price, quantity, image) VALUES(?,?,?,?,?,?)");
          $insert_cart->execute([$user_id, $pid, $name, $price, $qty, $image]);
-         $message[] = 'added to cart!';
+         $message[] = 'adicionado ao carrinho!';
       }
 
    }
@@ -126,7 +126,7 @@ if(isset($_POST['order'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -167,7 +167,7 @@ if(isset($_POST['order'])){
       <nav class="navbar">
          <a href="#home">home</a>
          <a href="#about">sobre</a>
-         <a href="#menu">menu</a>
+         <a href="#menu">cardápio</a>
          <a href="#order">pedidos</a>
          <a href="#faq">faq</a>
       </nav>
@@ -270,7 +270,7 @@ if(isset($_POST['order'])){
          <p> endereço : <span><?= $fetch_orders['address']; ?></span> </p>
          <p> forma de pagamento : <span><?= $fetch_orders['method']; ?></span> </p>
          <p> total pedidos : <span><?= $fetch_orders['total_products']; ?></span> </p>
-         <p> total preço : <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
+         <p> total : <span>R$<?= $fetch_orders['total_price']; ?></span> </p>
          <p> status do pagamento : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
       </div>
       <?php
@@ -305,9 +305,9 @@ if(isset($_POST['order'])){
          <div class="content">
           <p> <?= $fetch_cart['name']; ?> <span>(<?= $fetch_cart['price']; ?> x <?= $fetch_cart['quantity']; ?>)</span></p>
           <form action="" method="post">
-             <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
-             <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $fetch_cart['quantity']; ?>" onkeypress="if(this.value.length == 2) return false;">
-               <button type="submit" class="fas fa-edit" name="update_qty"></button>
+            <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">
+            <input type="number" name="qty" class="qty" min="1" max="99" value="<?= $fetch_cart['quantity']; ?>" onkeypress="if(this.value.length == 2) return false;">
+            <button type="submit" class="fas fa-edit" name="update_qty"></button>
           </form>
          </div>
       </div>
@@ -318,7 +318,7 @@ if(isset($_POST['order'])){
       }
       ?>
 
-      <div class="cart-total"> total geral : <span>$<?= $grand_total; ?>/-</span></div>
+      <div class="cart-total"> total : <span>R$ <?= $grand_total; ?></span></div>
 
       <a href="#order" class="btn">pedir agora</a>
 
@@ -388,7 +388,7 @@ if(isset($_POST['order'])){
 
       <div class="box">
          <img src="images/about-2.svg" alt="">
-         <h3>30 minutes delivery</h3>
+         <h3>entrega em 30 minutos</h3>
          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
          <a href="#menu" class="btn">nosso menu</a>
       </div>
@@ -410,7 +410,7 @@ if(isset($_POST['order'])){
 
 <section id="menu" class="menu">
 
-   <h1 class="heading">our menu</h1>
+   <h1 class="heading">cardápio</h1>
 
    <div class="box-container">
 
@@ -421,7 +421,7 @@ if(isset($_POST['order'])){
             while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){    
       ?>
       <div class="box">
-         <div class="price">$<?= $fetch_products['price'] ?>/-</div>
+         <div class="price">R$ <?= $fetch_products['price'] ?></div>
          <img src="uploaded_img/<?= $fetch_products['image'] ?>" alt="">
          <div class="name"><?= $fetch_products['name'] ?></div>
          <form action="" method="post">
@@ -430,7 +430,7 @@ if(isset($_POST['order'])){
             <input type="hidden" name="price" value="<?= $fetch_products['price'] ?>">
             <input type="hidden" name="image" value="<?= $fetch_products['image'] ?>">
             <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
-            <input type="submit" class="btn" name="add_to_cart" value="add to cart">
+            <input type="submit" class="btn" name="add_to_cart" value="pedir agora">
          </form>
       </div>
       <?php
@@ -476,7 +476,7 @@ if(isset($_POST['order'])){
 
    </div>
 
-      <div class="grand-total"> total geral : <span>$<?= $grand_total; ?>/-</span></div>
+      <div class="grand-total"> total : <span>R$ <?= $grand_total; ?></span></div>
 
       <input type="hidden" name="total_products" value="<?= $total_products; ?>">
       <input type="hidden" name="total_price" value="<?= $grand_total; ?>">

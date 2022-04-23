@@ -91,7 +91,7 @@ section{
 
 .message span{
    font-size: 2rem;
-   color:var(--black);
+   color:var(--red);
 }
 
 .message i{
@@ -540,6 +540,7 @@ section{
 .about .box-container .box h3{
    font-size: 2.5rem;
    color:var(--black);
+   text-transform: capitalize;
 }
 
 .about .box-container .box p{

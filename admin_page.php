@@ -15,7 +15,7 @@ if(!isset($admin_id)){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,9 +50,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3>$<?= $total_pendings; ?>/-</h3>
-         <p>total pendings</p>
-         <a href="admin_orders.php" class="btn">see orders</a>
+         <h3>R$ <?= $total_pendings; ?></h3>
+         <p>total de pendências</p>
+         <a href="admin_orders.php" class="btn">ver pedidos</a>
       </div>
 
       <div class="box">
@@ -66,9 +66,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3>$<?= $total_completes; ?>/-</h3>
-         <p>completed orders</p>
-         <a href="admin_orders.php" class="btn">see orders</a>
+         <h3>R$ <?= $total_completes; ?></h3>
+         <p>pedidos concluídos</p>
+         <a href="admin_orders.php" class="btn">ver pedidos</a>
       </div>
 
       <div class="box">
@@ -78,8 +78,8 @@ if(!isset($admin_id)){
             $number_of_orders = $select_orders->rowCount()
          ?>
          <h3><?= $number_of_orders; ?></h3>
-         <p>orders placed</p>
-         <a href="admin_orders.php" class="btn">see orders</a>
+         <p>pedidos realizados</p>
+         <a href="admin_orders.php" class="btn">ver pedidos</a>
       </div>
 
       <div class="box">
@@ -89,8 +89,8 @@ if(!isset($admin_id)){
             $number_of_products = $select_products->rowCount()
          ?>
          <h3><?= $number_of_products; ?></h3>
-         <p>products added</p>
-         <a href="admin_products.php" class="btn">see products</a>
+         <p>produtos adicionados</p>
+         <a href="admin_products.php" class="btn">ver produtos</a>
       </div>
 
       <div class="box">
@@ -100,8 +100,8 @@ if(!isset($admin_id)){
             $number_of_users = $select_users->rowCount()
          ?>
          <h3><?= $number_of_users; ?></h3>
-         <p>normal users</p>
-         <a href="users_accounts.php" class="btn">see users</a>
+         <p>usuários</p>
+         <a href="users_accounts.php" class="btn">ver usuários</a>
       </div>
 
       <div class="box">
@@ -111,8 +111,8 @@ if(!isset($admin_id)){
             $number_of_admins = $select_admins->rowCount()
          ?>
          <h3><?= $number_of_admins; ?></h3>
-         <p>admin users</p>
-         <a href="admin_accounts.php" class="btn">see admins</a>
+         <p>usuário administrador</p>
+         <a href="admin_accounts.php" class="btn">ver administrador</a>
       </div>
 
    </div>

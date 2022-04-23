@@ -18,10 +18,10 @@
 
       <nav class="navbar">
          <a href="admin_page.php">home</a>
-         <a href="admin_products.php">products</a>
-         <a href="admin_orders.php">orders</a>
+         <a href="admin_products.php">produtos</a>
+         <a href="admin_orders.php">pedidos</a>
          <a href="admin_accounts.php">admin</a>
-         <a href="users_accounts.php">user</a>
+         <a href="users_accounts.php">usuários</a>
       </nav>
 
       <div class="icons">
@@ -36,11 +36,11 @@
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
          <p><?= $fetch_profile['name']; ?></p>
-         <a href="admin_profile_update.php" class="btn">update profile</a>
-         <a href="logout.php" class="delete-btn">logout</a>
+         <a href="admin_profile_update.php" class="btn">atualizar perfil</a>
+         <a href="logout.php" class="delete-btn">sair</a>
          <div class="flex-btn">
             <a href="admin_login.php" class="option-btn">login</a>
-            <a href="admin_register.php" class="option-btn">register</a>
+            <a href="admin_register.php" class="option-btn">registrar</a>
          </div>
       </div>
    </section>
