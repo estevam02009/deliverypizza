@@ -1,7 +1,7 @@
 <?php 
 	
 	$host = 'localhost';
-	$dbname = 'pizza_db';
-	$username = 'edev';
-	$password = 'archlinux';
+	$dbname = 'delivery_db';
+	$username = 'root';
+	$password = 'archlinux0209';
 ?>
